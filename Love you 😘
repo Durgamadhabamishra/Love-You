@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Sorry Baby ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ffb199, #ff6a88);
+    text-align: center;
+}
+
+.container {
+    background: rgba(255,255,255,0.90);
+    padding: 35px 25px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 430px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+h1 {
+    color: #ff3867;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.big-emoji {
+    font-size: 65px;
+    margin-bottom: 15px;
+    animation: heartbeat 1s infinite;
+}
+
+p {
+    color: #555;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #ff3867;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 17px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    background: #e91e50;
+}
+
+#response {
+    display: none;
+    margin-top: 20px;
+    color: #ff3867;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.floating {
+    position: absolute;
+    bottom: -50px;
+    font-size: 30px;
+    animation: floatUp 7s linear infinite;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="big-emoji">🥺😭💔</div>
+
+    <h1>I AM SORRY BABY ❤️</h1>
+
+    <p>
+        I know I may have hurt you, and I'm genuinely sorry.
+        <br><br>
+        Please don't stay upset with me.
+        You mean so much to me.
+        <br><br>
+        I wish I could give you the biggest hug right now. 🥺
+    </p>
+
+    <button onclick="forgive()">
+        Please Forgive Me 🥺
+    </button>
+
+    <div id="response">
+        Thank you, Baby! ❤️🥹
+        <br>
+        Sending you a million hugs and kisses! 😘💋
+    </div>
+</div>
+
+<script>
+const emojis = ["🥺", "😭", "😢", "💔", "😔", "🥹", "❤️"];
+
+function createEmoji() {
+    const emoji = document.createElement("div");
+    emoji.className = "floating";
+    emoji.innerHTML = emojis[
+        Math.floor(Math.random() * emojis.length)
+    ];
+
+    emoji.style.left = Math.random() * 100 + "vw";
+    emoji.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(emoji);
+
+    setTimeout(() => emoji.remove(), 9000);
+}
+
+setInterval(createEmoji, 350);
+
+function forgive() {
+    document.getElementById("response").style.display = "block";
+}
+</script>
+
+</body>
+</html>
